@@ -11,7 +11,7 @@
     "node":"12.18.4"
   },
   "dependencies": {
-    "express":"*",
+    "express":"*"
  },
   "author": "Shahrukh",
   "license": "ISC",
