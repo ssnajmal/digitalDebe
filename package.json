@@ -4,15 +4,16 @@
   "description": "DigitalDebe",
   "main": "index.js",
   "scripts": {
-    "start":"node server/server.js",
+    "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "engines":{
-    "node":"12.18.4"
+  "engines": {
+    "node": "12.18.4"
   },
   "dependencies": {
-    "express":"*"
- },
+    "express": "*",
+    "socket.io": "^2.3.0"
+  },
   "author": "Shahrukh",
   "license": "ISC"
 }
