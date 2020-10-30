@@ -14,6 +14,5 @@
     "express":"*"
  },
   "author": "Shahrukh",
-  "license": "ISC",
-
+  "license": "ISC"
 }
