@@ -10,6 +10,10 @@
   "engines":{
     "node":"12.18.4"
   },
+
   "author": "Shahrukh",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express":"*",
+ }
 }
