@@ -12,10 +12,33 @@ app.use(express.static('public'))
 
 
 io.on('connection',(socket)=>{
-  console.log("a new user just connected");
-  socket.on('disconnect',(socket)=>{
-    console.log("a user just diconnected");
+console.log("a new user just connected");
+
+
+    socket.emit('newMessage',{
+    from:"admin",
+    text:  "welcome to the digital debe",
+    createdAt: new Date().getTime()
+    });
+
+    socket.broadcast.emit('newMessage',{
+      from:"admin",
+      text:"New user Joined",
+      createdAt: new Date().getTime()
+    });
+
+  socket.on('createMessage',(message)=>{
+    console.log("created message", message)
+    io.emit('newMessage',{
+      from:message.from,
+      text:message.text,
+      createdAt: new Date().getTime()
+    })
   });
+  socket.on('disconnect',(socket)=>{
+    console.log("a user just disconnected");
+  });
+
 });
 
 server.listen(process.env.PORT || 5000, function () {
