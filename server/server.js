@@ -26,7 +26,7 @@ io.on('connection',(socket) => {
     });
 
     socket.on('createLocationMessage', (coords) =>{
-    io.emit('newMessage', generateMessage('Admin',` ${coords.lat},  ${coords.lng} `))
+    io.emit('newMessage', generateMessage('Admin',"We got your Coordinates!! Hurray!"))
     })
     socket.on('disconnect',function(socket){
     console.log("a user just disconnected")
