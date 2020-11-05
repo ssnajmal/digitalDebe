@@ -35,8 +35,8 @@ document.querySelector('#send-location').addEventListener('click', function (e) 
   navigator.geolocation.getCurrentPosition(function (position){
     console.log(position);
   socket.emit('createLocationMessage',{
-    lat: position.coords.latitude,
-    lng: position.coords.longitude
+    lat: geolocationCoordinatesinstance.latitude,
+    lng: geolocationCoordinatesinstance.longitude
   })
   }, function (){
     alert('unable to acquire location');

@@ -24,7 +24,7 @@ io.on('connection',(socket) => {
     callback('MESSAGE CREATED');
   });
   socket.on('createLocationMessage', (coords) =>{
-    io.emit('newMessage', generateMessage('admin',"${coords.lng},  ${coords.lng}"))
+    io.emit('newMessage', generateMessage('admin'," ${lat},  ${lng} "))
   })
   socket.on('disconnect',function(socket){
 
