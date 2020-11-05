@@ -24,9 +24,8 @@ document.querySelector('#submit-btn').addEventListener('click', function (e) {
 
   socket.emit("createMessage", {
     from: "User",
-    text: document.querySelector('input[name="message"]').value
+    text:  document.querySelector('input[name="message"]').value
   }, function(){
-
   })
 });
 //button for geolocation
@@ -45,4 +44,9 @@ document.querySelector('#send-location').addEventListener('click', function (e) 
   }, function (){
     alert('unable to acquire location');
   })
+});
+
+document.querySelector('#clearbtn').addEventListener('click', function (e) {
+
+     document.querySelector('input[name="message"]').value = "";
 });
