@@ -1,4 +1,5 @@
 let socket = io();
+
 socket.on('connect', function (){
   console.log("connected to server");
 })
@@ -24,4 +25,20 @@ document.querySelector('#submit-btn').addEventListener('click', function (e) {
   }, function(){
 
   })
-})
+});
+document.querySelector('#send-location').addEventListener('click', function (e) {
+
+  if(!navigator.geolocation){
+    return alert('geolocation isnt supported on this browser err cd 1');
+  }
+
+  navigator.geolocation.getCurrentPosition(function (position){
+    console.log(position);
+  socket.emit('createLocationMessage',{
+    lat: position.coords.latitude,
+    lng: position.coords.longitude
+  })
+  }, function (){
+    alert('unable to acquire location');
+  })
+});
