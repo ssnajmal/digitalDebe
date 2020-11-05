@@ -13,24 +13,24 @@ app.use(express.static('public'))
 
 
 io.on('connection',(socket) => {
-
+    // connection (listener caller)
     console.log("a new user just connected");
     socket.emit('newMessage', generateMessage('Admin','Welcome to Digital Debe'));
     socket.broadcast.emit('newMessage', generateMessage('Admin',"New user Joined"));
 
+    //message listener caller
     socket.on('createMessage',(message, callback) => {
     console.log("created message", message)
     io.emit('newMessage',generateMessage(message.from, message.text))
     callback('MESSAGE CREATED');
-  });
-  socket.on('createLocationMessage', (coords) =>{
-    io.emit('newMessage', generateMessage('admin'," ${lat},  ${lng} "))
-  })
-  socket.on('disconnect',function(socket){
+    });
 
-    console.log("a user just disconnected");
-
-  });
+    socket.on('createLocationMessage', (coords) =>{
+    io.emit('newMessage', generateMessage('admin',` ${coords.lat},  ${coords.lng} `))
+    })
+    socket.on('disconnect',function(socket){
+    console.log("a user just disconnected")
+    });
 
 });
 

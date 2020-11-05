@@ -1,12 +1,15 @@
 let socket = io();
-// new line
+// connection listener
 socket.on('connect', function (){
   console.log("connected to server");
-})
+});
+
+//disconnect listener
 socket.on('disconnect',function(){
   console.log("disconnected from server");
 });
 
+//message function
 socket.on('newMessage', function(message){
   console.log("newMessage", message);
   var li = document.createElement("li");
@@ -15,7 +18,7 @@ socket.on('newMessage', function(message){
   document.querySelector('Body').appendChild(li);
 });
 
-
+//submit button
 document.querySelector('#submit-btn').addEventListener('click', function (e) {
   e.preventDefault();
 
@@ -26,6 +29,7 @@ document.querySelector('#submit-btn').addEventListener('click', function (e) {
 
   })
 });
+//button for geolocation
 document.querySelector('#send-location').addEventListener('click', function (e) {
 
   if(!navigator.geolocation){
@@ -35,8 +39,8 @@ document.querySelector('#send-location').addEventListener('click', function (e) 
   navigator.geolocation.getCurrentPosition(function (position){
     console.log(position);
   socket.emit('createLocationMessage',{
-    lat: geolocationCoordinatesinstance.latitude,
-    lng: geolocationCoordinatesinstance.longitude
+   latitude : position.coords.latitude,
+   longitude : position.coords.longitude
   })
   }, function (){
     alert('unable to acquire location');
