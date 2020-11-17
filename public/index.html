@@ -1,55 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-
     <meta charset="utf-8">
-
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-    <meta name="description" content="Home">
-    <meta name="author" content="Shahrukh Najmal">
-
-    <title>DigitalDebe V20</title>
+    <title>Join | ChatApp</title>
+    <meta name="viewport" content="width=device-width, inital-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/css/styles.css">
   </head>
-  <body>
-    <div class="w3-bar w3-black w3-large w3-center" style=" width:100%">
-        <h1><i class="fa fa-home" aria-hidden="true"></i>Welcome to DigitalDebe</h1>
-         <a href="index2.html" class="w3-bar-item w3-button w3-white w3-tangerine" style="width:100%"><i class="fa fa-trash" aria-hidden="true"></i>The Home of Recycling</a>
+  <body class="centered-form">
+    <div class="centered-form__form">
+      <form action="/chat.html">
+        <div class="form-field"><h3>Join Chat</h3></div>
+        <div class="form-field">
+          <label>Display name</label>
+          <input type="text" name="name" autofocus>
+        </div>
+        <div class="form-field">
+          <label>Room name</label>
+          <input type="text" name="room" autofocus>
+        </div>
+        <div class="form-field">
+          <button>Join</button>
+        </div>
+      </form>
     </div>
-    <div class="w3-bar w3-black w3-large w3-center" style=" width:100%">
-         <a href="index.html" class="w3-bar-item w3-button w3-white w3-tangerine" style="width:100%"><i class="fa fa-play"></i>Type in below to begin, starts a chat but be careful what you share with others.<i class="fa fa-recycle"></i></a>
-         <a href="https://www.google.com/maps" class="w3-bar-item w3-button w3-white w3-tangerine" style="width:100%"><i class="fa fa-play"></i>Let us Acquire Coordinates or get them and send them to us from this link<i class="fa fa-map"></i></a>
-    </div>
-    <table>
-      <td>List of goods<a href="fullist.html" class="w3-bar-item w3-button w3-white w3-tangerine">get full list<i class="fa fa-list"></i></a></td>
-      <tr>
-        <td>Material</td>
-        <td>Est. Price per Kilo</td>
-
-      </tr>
-<tr>
-  <td>some paper</td>
-  <td>2/-</td>
-</tr>
-<tr>
-  <td>paper 2</td>
-  <td>3/-</td>
-</tr>
-  </table>
-
-    <form id="message.form">
-      <input type="text" name="message" placeholder="message">
-      <button type="submit" id="submit-btn">Submit</button>
-      <button type="button" id="clearbtn">Clear</button>
-
-    </form>
-      <button type="button" id="send-location">Send location</button>
-  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-  <script type="text/javascript" src="/js/index.js"> </script>
 
   </body>
 </html>
