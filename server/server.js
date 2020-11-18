@@ -20,7 +20,7 @@ let users = new Users();
 app.use(express.static(publicPath));
 
 io.on('connection', (socket) => {
-  console.log("A new user just connected");
+  console.log("A New user just connected: USERCONN1");
 
   socket.on('join', (params, callback) => {
     if(!isRealString(params.name) || !isRealString(params.room)){
@@ -32,9 +32,9 @@ io.on('connection', (socket) => {
     users.addUser(socket.id, params.name, params.room);
 
     io.to(params.room).emit('updateUsersList', users.getUserList(params.room));
-    socket.emit('newMessage', generateMessage('Admin', `Welocome to ${params.room}!`));
+    socket.emit('newMessage', generateMessage('Admin', `Welcome to ${params.room}!`));
 
-    socket.broadcast.to(params.room).emit('newMessage', generateMessage('Admin', "New User Joined!"));
+    socket.broadcast.to(params.room).emit('newMessage', generateMessage('Admin', "A New User Had Joined!"));
 
     callback();
   })
