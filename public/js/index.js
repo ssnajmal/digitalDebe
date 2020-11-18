@@ -28,6 +28,16 @@ document.querySelector('#submit-btn').addEventListener('click', function (e) {
   }, function(){
   })
 });
+//mailer button
+document.querySelector('#submit-btn').addEventListener('click', function (e) {
+  e.preventDefault();
+
+  socket.emit("createMessage", {
+    from: "User",
+    text:  document.querySelector('input[name="message"]').value
+  }, function(){
+  })
+});
 //button for geolocation
 document.querySelector('#send-location').addEventListener('click', function (e) {
 

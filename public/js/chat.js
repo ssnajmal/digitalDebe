@@ -54,7 +54,7 @@ socket.on('newMessage', function(message) {
 });
 
 socket.on('newLocationMessage', function(message) {
-  const formattedTime = moment(message.createdAt).format('LT');
+  const formattedTime = moment(message.createdAt).format('L');
   console.log("newLocationMessage", message);
 
   const template = document.querySelector('#location-message-template').innerHTML;
